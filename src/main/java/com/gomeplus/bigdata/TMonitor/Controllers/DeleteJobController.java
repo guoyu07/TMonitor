@@ -22,7 +22,8 @@ public class DeleteJobController {
 
     @SuppressWarnings("unchecked")
     @JsonView(View.filter.class)
-    @RequestMapping(value = "/delete/job", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/job", method = RequestMethod.DELETE,
+            produces = "application/json")
     @ApiOperation("根据job名称和jobGroup名称，删除job")
     public JobVO deleteJob(@RequestParam String jobName,
                            @RequestParam String jobGroup

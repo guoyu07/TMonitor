@@ -22,7 +22,8 @@ public class ListJobController {
 
     @SuppressWarnings("unchecked")
     @JsonView(View.filter.class)
-    @RequestMapping(value = "/list/jobs", method = RequestMethod.GET)
+    @RequestMapping(value = "/list/jobs", method = RequestMethod.GET,
+            produces = "application/json")
     @ApiOperation(value = "列出所有的job及其对应的trigger列表")
     public List<JobVO> listJobs() throws SchedulerException{
         List<JobVO> jobs = new ArrayList<JobVO>();
