@@ -133,7 +133,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>cn.timd.spark.WordCount</mainClass>
+                            <mainClass>com.gomeplus.bigdata.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
