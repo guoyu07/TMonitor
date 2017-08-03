@@ -133,7 +133,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.gomeplus.bigdata.Application</mainClass>
+                            <mainClass>com.gomeplus.bigdata.TMonitor.Application</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
