@@ -84,7 +84,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
+            <version>5.1.43</version>
         </dependency>
 
         <dependency>
@@ -114,39 +114,23 @@
     <build>
         <finalName>TMonitor</finalName>
 
-        <plugins>
+       <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>UTF-8</encoding>
+                    <fork>true</fork>
+                    <mainClass>com.gomeplus.bigdata.TMonitor.Application</mainClass>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.gomeplus.bigdata.TMonitor.Application</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
+                  <executions>
                     <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
+                      <goals>
+                        <goal>repackage</goal>
+                      </goals>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
+
     </build>
 </project>
