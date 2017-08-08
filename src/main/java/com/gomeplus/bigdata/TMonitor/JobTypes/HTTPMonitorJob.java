@@ -2,6 +2,7 @@ package com.gomeplus.bigdata.TMonitor.JobTypes;
 
 import com.gomeplus.bigdata.TMonitor.Models.HTTPRequestMaker;
 import com.gomeplus.bigdata.TMonitor.Models.MailSender;
+import com.gomeplus.bigdata.TMonitor.Models.Template;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.quartz.Job;
@@ -29,7 +30,9 @@ public class HTTPMonitorJob implements Job {
                 .build();
 
         Request.Builder requestBuilder = new Request.Builder()
-                .url(httpRequestMaker.getRequestURL());
+                .url(
+                    Template.replace(httpRequestMaker.getRequestURL())
+                );
         if (httpRequestMaker.getRequestHeaders() != null)
             for (List<String> header: httpRequestMaker.getRequestHeaders())
                 requestBuilder.addHeader(header.get(0), header.get(1));
