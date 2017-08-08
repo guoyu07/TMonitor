@@ -42,7 +42,7 @@ public class NewHTTPJobController extends NewJobController {
                             @ApiParam(value = "报警时的回调URL")
                             @RequestParam(required = false) String callbackURL,
                             @ApiParam(value = "报警邮件的接收方")
-                            @RequestParam String toUser,
+                            @RequestParam(required = false) String toUser,
 
                             @ApiParam(value = "监控的URL")
                             @RequestParam String requestURL,
