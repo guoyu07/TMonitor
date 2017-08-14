@@ -27,6 +27,9 @@ public class NewHTTPJobController extends NewJobController {
             produces = "application/json")
     @ApiOperation(value="创建一个新的HTTP监控任务")
     public JobVO newHTTPJob(
+                            @ApiParam(value = "任务描述")
+                            @RequestParam(required = false, defaultValue = "job description")
+                                    String jobDescription,
                             @ApiParam(value = "job名称前缀", defaultValue = "jobNamePrefix")
                             @RequestParam String jobNamePrefix,
                             @ApiParam(value = "job组名称", defaultValue = "jobGroup")
@@ -69,6 +72,7 @@ public class NewHTTPJobController extends NewJobController {
                             @RequestParam(required = false) String bodyPattern
     ) throws SchedulerException{
         Map<String, Object> map = new HashMap<String, Object>();
+        map.put("jobDescription", jobDescription);
         if (callbackURL != null)
             map.put("callbackURL", callbackURL);
         map.put("toUser", toUser);
