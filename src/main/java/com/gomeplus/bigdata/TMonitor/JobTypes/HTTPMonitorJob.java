@@ -117,6 +117,7 @@ public class HTTPMonitorJob implements Job {
             errorMessage = ex.getMessage();
         }
 
-        alert(errorMessage, jobDataMap);
+        alert(httpRequestMaker.getRequestURL() +
+                " failed, because: " + errorMessage, jobDataMap);
     }
 }
