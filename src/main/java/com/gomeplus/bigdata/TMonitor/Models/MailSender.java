@@ -68,7 +68,9 @@ public final class MailSender {
 
         try {
             transport.sendMessage(message, message.getAllRecipients());
-        } catch (IllegalStateException ex) {
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            log.error(ex.getMessage());
             initialize(this.properties);
         }
 
